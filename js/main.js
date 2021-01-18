@@ -1,3 +1,4 @@
+// Действие при скролле
 $(window).scroll(function() {
 	var height = $(window).scrollTop();
 	if(height > 100){
@@ -16,6 +17,7 @@ $(window).scroll(function() {
 	}
 });
 
+// Плавный скролл к якорю
 var $page = $('html, body');
 $('a[href*="#"]').click(function() {
 	$page.animate({
@@ -23,3 +25,19 @@ $('a[href*="#"]').click(function() {
 	}, 900);
 	return false;
 });
+
+// Прелоадер
+window.onload = function () {
+	document.body.classList.add('loaded_hiding');
+	window.setTimeout(function () {
+		document.body.classList.add('loaded');
+		document.body.classList.remove('loaded_hiding');
+	}, 500);
+}
+
+// Воспроизвидение звука при наведении на "Контакты"
+var myaudio = $("#my-sound")[0];
+$("#nav-contact")
+	.mouseenter(function() {
+		myaudio.play();
+	});

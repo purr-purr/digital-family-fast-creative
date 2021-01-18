@@ -10,6 +10,13 @@
         <link rel="shortcut icon" href="img/favicon.ico"/>
     </head>
     <body>
+        <!-- Прелоадер -->
+        <div class="preloader">
+            <div class="preloader__row">
+            <div class="preloader__item"></div>
+            <div class="preloader__item"></div>
+            </div>
+        </div>
 
         <main>
             <header class="hed">
@@ -29,7 +36,6 @@
 
             <section class="section-1 fullscreen-bg">
                 <a href="#contact" class="next-section">
-                    
                     <div class="navigation-item" id="nav-contact">
                         <div class="letter">C</div>
                         <div class="letter">O</div>
@@ -93,6 +99,10 @@
                 </div>
             </section>
         </main>
+
+        <audio id="my-sound">
+            <source src="sound/lock.mp3"/>
+        </audio>
 
         <section class="closed-page">
             <h2 class="contact__title">this page only for desctop</h2>

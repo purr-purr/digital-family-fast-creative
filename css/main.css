@@ -1,3 +1,68 @@
+/* Preloader */
+.preloader {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background: #e0e0e0;
+	z-index: 1001;
+}
+
+.preloader__row {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	width: 70px;
+	height: 70px;
+	margin-top: -35px;
+	margin-left: -35px;
+	text-align: center;
+	animation: preloader-rotate 2s infinite linear;
+}
+
+.preloader__item {
+	position: absolute;
+	display: inline-block;
+	top: 0;
+	background-color: #000;
+	border-radius: 100%;
+	width: 35px;
+	height: 35px;
+	animation: preloader-bounce 2s infinite ease-in-out;
+}
+
+.preloader__item:last-child {
+	top: auto;
+	bottom: 0;
+	animation-delay: -1s;
+}
+
+@keyframes preloader-rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes preloader-bounce {
+	0%,
+	100% {
+		transform: scale(0);
+	}
+	50% {
+		transform: scale(1);
+	}
+}
+
+.loaded_hiding .preloader {
+	transition: 0.3s opacity;
+	opacity: 0;
+}
+
+.loaded .preloader {
+	display: none;
+}
+
 body {
 	font-family: 'Gilroy';
 	font-weight: 800;
@@ -10,6 +75,11 @@ body {
 ::-webkit-scrollbar-button { height: 0; }
 ::-webkit-scrollbar-thumb {height: 50px; background-color:#fff; border-radius: 50px;}
 ::-webkit-scrollbar-track-piece { background-color: #333;}
+
+::selection {
+	background: #000;
+	color: #fff;
+}
 
 * {
 	margin: 0;
@@ -118,7 +188,7 @@ header {
 	left: 0;
 	width: 100%;
 	text-align: center;
-	z-index: 999;
+	z-index: 5;
 	cursor: default;
 }
 
@@ -399,6 +469,11 @@ header {
 	background-color: #fff;
 	color: #000;
 	transition: background-color .4s ease-in-out, color .4s ease-in-out;
+}
+
+.dark-theme-color::selection {
+	background: #fff;
+	color: #000;
 }
 
 .closed-page {
